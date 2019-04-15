@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <ul id="produtos">
+            <li>Produtos</li>
+        </ul>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var url = 'http://webapi-cors-demo.azurewebsites.net/api/Products';
+            $.ajax({
+                dataType: "json",
+                url: url,
+                success: function (data) {
+                    $.each(data, function (index, item) {
+                        $("#produtos").append("<li>" + item.Name + "</li>");
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

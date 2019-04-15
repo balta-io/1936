@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app>
+<head>
+    <title></title>
+</head>
+<body>
+    <div ng-controller="MeuCtrl">
+        <button class="btn btn-info" ng-click="obter()">GET</button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+    <script>        
+        var app = angular.module('app', []);
+
+        app.controller('MeuCtrl', ['$scope', '$http', function ($scope, $http) {
+            $scope.title = "Meu Controller";
+            $scope.obter = function () {
+                Get();
+            }
+            var serviceUrl = 'http://customer-service.azurewebsites.net/api/clientes';
+            function Get() {
+                $http.get(serviceUrl)
+                    .success(function (result, status, headers, config) {
+                        console.log(result);
+                    });
+            }
+        }]);
+    </script>
+</body>
+</html>
