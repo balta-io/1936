@@ -5,7 +5,7 @@ Autor: André Baltieri
 
 Link: https://balta.io/cursos/1936
 
-## Tecnologias utilizadas ##
+## Projeto construído com: ##
 * C#
 * ASP.NET MVC
 * API REST
